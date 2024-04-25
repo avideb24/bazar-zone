@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,10 +14,20 @@ body{
   background: var(--bg-primary);
   color: var(--text-primary);
   width: 100%;
+  font-family: "Cormorant", serif;
 }
 
 
 
+
+
+/* overlay slate color */
+.content-overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.1);
+}
 
 /* footer links hover */
 .footer-links li:hover{

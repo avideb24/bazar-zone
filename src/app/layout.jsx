@@ -14,9 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-          <Navbar />
+        <Navbar />
+        <main className="min-h-screen max-w-7xl mx-3 xl:mx-auto bg-[color:var(--bg-primary)] text-[color:var(--text-prmary)] text-sm ">
           {children}
-          <Footer />
+        </main>
+        <Footer />
       </body>
     </html>
   );

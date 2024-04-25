@@ -25,7 +25,7 @@ const Navbar = () => {
                                 <Link href={'/'}>About Us</Link>
                             </li>
                             <li>
-                                <Link href={'/'}>Contact</Link>
+                                <Link href={'/contact'}>Contact</Link>
                             </li>
                         </ul>
                     </nav>
@@ -43,7 +43,7 @@ const Navbar = () => {
                             <Link href={'/'}>About Us</Link>
                         </li>
                         <li>
-                            <Link href={'/'}>Contact</Link>
+                            <Link href={'/contact'}>Contact</Link>
                         </li>
                     </ul>
                 </nav>
