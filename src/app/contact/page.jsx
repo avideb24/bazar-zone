@@ -26,7 +26,7 @@ const ContactPaage = () => {
                     </div>
                 </div>
 
-                {/* contact form */}
+                {/* contact form **/}
                 <div className="md:w-1/2 space-y-3">
                     <h2 className="text-lg font-semibold text-center">We&apos;ld like to hear from you</h2>
                     <form className="text-[color:var(--text-primary)] space-y-3">
