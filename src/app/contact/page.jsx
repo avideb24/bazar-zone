@@ -45,9 +45,9 @@ const ContactPaage = () => {
                             <label htmlFor="message" className="w-16">Message</label>
                             <textarea name="message" className="flex grow px-3 py-1 bg-transparent border border-slate-400 outline-none resize-none" placeholder="Your Message..." id="message"></textarea>
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex items-center gap-2 ml-[72px]">
                             <input type="submit" value="Send" className="bg-[color:var(--text-primary)] px-5 py-1 text-white cursor-pointer" />
-                            <p>• My data will be stored.</p>
+                            <p className="text-xs">• I agree that my data will be stored.</p>
                         </div>
                     </form>
                 </div>
