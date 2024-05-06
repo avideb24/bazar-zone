@@ -4,6 +4,9 @@ import { MdEmail } from "react-icons/md";
 
 
 const ContactPaage = () => {
+
+    throw new Error();
+
     return (
         <section className="py-5">
             <h1 className="text-3xl font-semibold mb-2">Contact Us</h1>
