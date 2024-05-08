@@ -6,15 +6,19 @@ import { PiShoppingCartSimple } from "react-icons/pi";
 import { AiOutlineUser } from "react-icons/ai";
 
 const Navbar = () => {
+
+    const router = useRouter();
+
+
     return (
-        <header className="bg-primary pb-3 md:pb-0">
+        <header className="bg-[color:var(--bg-primary)] pb-3 md:pb-0">
             <nav className="navbar max-w-7xl mx-auto">
                 <div className="navbar-start">
                     <nav className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-200 rounded-box w-52">
+                        <ul tabIndex={0} className="nav-items menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-200 rounded-box w-52">
                             <li>
                                 <Link href={'/'}>Home</Link>
                             </li>
@@ -32,7 +36,7 @@ const Navbar = () => {
                     <Link href={'/'}>Bazar-Zone</Link>
                 </div>
                 <nav className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="nav-items menu menu-horizontal px-1">
                         <li>
                             <Link href={'/'}>Home</Link>
                         </li>
@@ -59,7 +63,7 @@ const Navbar = () => {
                     </button>
                     <button className="inline-block relative">
                         <PiShoppingCartSimple className="text-2xl" />
-                        <span className="w-4 h-4 bg-[color:var(--bg-primary)] absolute -top-2 -right-2 text-[10px] text-center rounded-full">8</span>
+                        <span className="w-4 h-4 bg-primary text-white absolute -top-2 -right-2 text-[10px] text-center rounded-full">8</span>
                     </button>
                 </div>
 
