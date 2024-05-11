@@ -7,9 +7,6 @@ import { AiOutlineUser } from "react-icons/ai";
 
 const Navbar = () => {
 
-    const router = useRouter();
-
-
     return (
         <header className="bg-[color:var(--bg-primary)] pb-3 md:pb-0">
             <nav className="navbar max-w-7xl mx-auto">
