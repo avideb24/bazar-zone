@@ -1,11 +1,30 @@
 'use client';
 
 import Link from "next/link";
-import { CiSearch } from "react-icons/ci";
-import { PiShoppingCartSimple } from "react-icons/pi";
-import { AiOutlineUser } from "react-icons/ai";
+import { useState } from "react";
+import { CiSearch, CiUser, CiShoppingCart } from "react-icons/ci";
+import { HiOutlineXMark } from "react-icons/hi2";
+import { TypeAnimation } from "react-type-animation";
 
 const Navbar = () => {
+
+    const [searchBtnClicked, setSearchBtnClicked] = useState(false);
+    const [isTypeAnimationVisible, setIsTypeAnimationVisible] = useState(true);
+
+
+    const handleSeachText = e => {
+        const searchText = e.target.value;
+
+        if(searchText.length > 0){
+            setIsTypeAnimationVisible(false)
+        }
+        else{
+            setIsTypeAnimationVisible(true)
+        }
+
+
+    }
+
 
     return (
         <header className="bg-[color:var(--bg-primary)] pb-3 md:pb-0">
@@ -49,30 +68,46 @@ const Navbar = () => {
                     </ul>
                 </nav>
                 <div className="navbar-end flex items-center gap-4 pr-3">
-                    <form className="max-w-52 relative hidden md:block">
-                        <input type="text" className="w-full bg-[color:var(--bg-primary)] border border-[color:var(--text-primary)] px-3 py-1 rounded-md outline-none" />
-                        <span className="absolute top-[9px] right-3">
-                            <CiSearch />
-                        </span>
-                    </form>
+                    <div className="relative">
+                        <button className="text-[28px] mt-2 hover:text-primary duration-150" onClick={() => setSearchBtnClicked(!searchBtnClicked)}>
+                            {
+                                searchBtnClicked ? <HiOutlineXMark /> : <CiSearch />
+                            }
+                        </button>
+                        <form className={`search-form w-60 flex absolute right-1/4 duration-200 ${searchBtnClicked ? '-bottom-[90%] opacity-100' : '-bottom-[130%] opacity-0 pointer-events-none'}`}>
+                            <input onChange={(e) => handleSeachText(e)} type="text" className="w-[80%] bg-[color:var(--bg-primary)] shadow-md border border-slate-100 px-3 py-1 rounded-l-sm outline-none" />
+
+                            <div className={`${isTypeAnimationVisible ? '' : 'hidden'} absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none text-base`}>
+                                <TypeAnimation
+                                    sequence={[
+                                        '',
+                                        1000,
+                                        'Search Products...',
+                                        1000,
+                                    ]}
+                                    wrapper="span"
+                                    speed={60}
+                                    cursor={true}
+                                    repeat={Infinity}
+                                />
+                            </div>
+
+                            <button className="w-[20%]" type="submit">
+                                <CiSearch className="text-xl p-2 w-full bg-secondary hover:bg-primary text-white h-10 duration-150  rounded-r-sm" />
+                            </button>
+                        </form>
+                    </div>
+
                     <button>
-                        <AiOutlineUser className="text-2xl" />
+                        <CiUser className="text-2xl" />
                     </button>
                     <button className="inline-block relative">
-                        <PiShoppingCartSimple className="text-2xl" />
+                        <CiShoppingCart className="text-2xl" />
                         <span className="w-4 h-4 bg-primary text-white absolute -top-2 -right-2 text-[10px] text-center rounded-full">8</span>
                     </button>
                 </div>
 
             </nav>
-
-            {/* mobile search */}
-            <form className="w-full flex md:hidden items-center gap-3 px-2 relative text-[color:var(--text-primary)]">
-                <input type="text" className="w-full bg-[color:var(--bg-primary)] border border-[color:var(--text-primary)] px-3 py-1 rounded-md outline-none" />
-                <button type="submit" className="absolute top-2 right-4">
-                    <CiSearch />
-                </button>
-            </form>
         </header>
     );
 };
