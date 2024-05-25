@@ -5,6 +5,7 @@ import { useState } from "react";
 import { CiSearch, CiUser, CiShoppingCart } from "react-icons/ci";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { TypeAnimation } from "react-type-animation";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 const Navbar = () => {
 
@@ -105,6 +106,7 @@ const Navbar = () => {
                         <CiShoppingCart className="text-2xl" />
                         <span className="w-4 h-4 bg-primary text-white absolute -top-2 -right-2 text-[10px] text-center rounded-full">8</span>
                     </button>
+                    <Link href={'/add-product'}><IoMdAddCircleOutline /></Link>
                 </div>
 
             </nav>
