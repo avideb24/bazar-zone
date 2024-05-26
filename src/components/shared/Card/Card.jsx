@@ -1,14 +1,18 @@
+'use client';
+
 import React from 'react';
 import teapotImg from '../../../../public/images/products/teapot.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CiHeart } from "react-icons/ci";
 
-const Card = () => {
+const Card = ({product}) => {
+
     return (
         <div className='max-w-72 group'>
             <div className='max-h-80 relative'>
-                <Image src={teapotImg} className='w-full h-full object-cover ' alt='product image' />
+                <Image src={product?.img1} width={500} height={500} className='w-full h-full object-cover ' alt='product image' />
+                {/* <img src={product?.img1} className='w-full h-full object-cover ' alt="" /> */}
                 {/* favourite btn */}
                 <button className='absolute right-3 top-3 text-xl bg-white px-2 py-2 rounded-full hover:bg-secondary hover:text-white duration-200'>
                     <CiHeart />
@@ -19,7 +23,7 @@ const Card = () => {
             {/* title & price */}
             <div className='flex flex-col items-center py-5'>
                 <Link href={'/'}>
-                    <h2 className='text-base font-semibold mb-1 hover:text-primary duration-150'>Teapot</h2>
+                    <h2 className='text-base font-semibold mb-1 hover:text-primary duration-150'>{product?.title}</h2>
                 </Link>
                 <p>$26.65</p>
             </div>

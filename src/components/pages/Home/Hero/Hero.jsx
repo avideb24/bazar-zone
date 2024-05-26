@@ -6,7 +6,7 @@ import Button from '@/components/shared/Button/Button';
 
 const Hero = () => {
     return (
-        <div className='flex flex-col md:flex-row gap-5 lg:gap-10 text-[10px] md:text-sm my-20'>
+        <div className='flex flex-col md:flex-row gap-5 lg:gap-10 text-[10px] md:text-sm my-10'>
             <div className='md:w-1/2 relative'>
                 <Image src={heroPoster1} className='w-full' alt='Overear Headphone' />
                 <div className='absolute left-5 sm:left-10 md:left-12 lg:left-20 top-1/2 transform -translate-y-1/2 space-y-2'>
