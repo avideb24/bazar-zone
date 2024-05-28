@@ -6,7 +6,7 @@ import { MdEmail } from "react-icons/md";
 const ContactPaage = () => {
 
     return (
-        <section className="py-5">
+        <section className="pt-8 pb-32">
             <h1 className="text-3xl font-semibold mb-2">Contact Us</h1>
             <p><span className="opacity-75">Home</span> / Contact Us</p>
 
