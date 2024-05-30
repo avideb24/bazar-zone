@@ -23,8 +23,8 @@ const NewsLetter = () => {
 
 
     return (
-        <div className='bg-slate-200 py-10 mb-16'>
-            <div className='max-w-xl mx-auto'>
+        <div className='bg-[#f5f2f2] py-10 mb-16'>
+            <div className='max-w-xl mx-auto p-4'>
                 <h2 className='text-xl md:text-2xl font-semibold text-center  capitalize'>subscribe to our newsletter</h2>
                 <p className='mb-8 mt-3 text-center opacity-80'>Stay Updated on all that&apos;s new add noteworthy</p>
                 <form className='flex items-center gap-3' onSubmit={handleSubscribe}>
