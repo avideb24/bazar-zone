@@ -1,4 +1,5 @@
 
+import Categories from '@/components/pages/Home/Categories/Categories';
 import Hero from '@/components/pages/Home/Hero/Hero';
 import NewsLetter from '@/components/pages/Home/NewsLetter/NewsLetter';
 import Button from '@/components/shared/Button/Button';
@@ -13,6 +14,9 @@ const Homepage = async () => {
 
     return (
         <main className=''>
+
+            <Categories />
+
             <div>
                 {
                     products.length == 0 ?
