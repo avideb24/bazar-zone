@@ -40,7 +40,7 @@ const Navbar = () => {
                                 <Link href={'/'}>Home</Link>
                             </li>
                             <li>
-                                <Link href={'/'}>Products</Link>
+                                <Link href={'/products'}>Products</Link>
                             </li>
                             <li>
                                 <Link href={'/'}>About Us</Link>
@@ -58,7 +58,7 @@ const Navbar = () => {
                             <Link href={'/'}>Home</Link>
                         </li>
                         <li>
-                            <Link href={'/'}>Products</Link>
+                            <Link href={'/products'}>Products</Link>
                         </li>
                         <li>
                             <Link href={'/'}>About Us</Link>
