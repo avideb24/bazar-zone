@@ -27,7 +27,7 @@ const Products = async () => {
                                     )
                                 }
                             </div>
-                            <Link href={'/'} className='flex justify-center my-8'>
+                            <Link href={'/products'} className='flex justify-center my-8'>
                                 <Button btnText={'See All Products'} />
                             </Link>
                         </div>

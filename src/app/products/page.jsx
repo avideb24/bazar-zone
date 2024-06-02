@@ -9,8 +9,6 @@ const ProductsPage = async () => {
 
     const products = await getProducts();
 
-    console.log(products);
-
     return (
         <section>
             <div className='flex gap-2 mt-5'>
