@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import teapotImg from '../../../../public/images/products/teapot.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CiHeart } from "react-icons/ci";
@@ -22,7 +21,7 @@ const Card = ({product}) => {
             </div>
             {/* title & price */}
             <div className='flex flex-col items-center py-5'>
-                <Link href={'/'}>
+                <Link href={`/products/${product?._id}`}>
                     <h2 className='text-base font-semibold mb-1 hover:text-primary duration-150'>{product?.title}</h2>
                 </Link>
                 <p>$26.65</p>
