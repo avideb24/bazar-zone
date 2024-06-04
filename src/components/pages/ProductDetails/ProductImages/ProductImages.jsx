@@ -1,0 +1,35 @@
+'use client';
+
+import React from 'react';
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+
+const ProductImages = ({product}) => {
+
+const images = [
+    {
+      original: `${product?.img1}`,
+      thumbnail: `${product?.img1}`,
+    },
+    {
+      original: `${product?.img2}`,
+      thumbnail: `${product?.img2}`,
+    },
+    {
+      original: `${product?.img3}`,
+      thumbnail: `${product?.img3}`,
+    },
+    {
+      original: `${product?.img4}`,
+      thumbnail: `${product?.img4}`,
+    },
+  ];
+  
+    return (
+        <div className='max-w-sm'>
+            <ImageGallery items={images} showPlayButton={false} showNav={false} />
+        </div>
+    );
+};
+
+export default ProductImages;
