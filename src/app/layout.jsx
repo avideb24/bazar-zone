@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className} `}>
         <Navbar />
-        <main className="min-h-screen max-w-7xl mx-3 xl:mx-auto bg-[color:var(--bg-primary)] text-[color:var(--text-prmary)] text-sm ">
+        <main className="min-h-screen max-w-7xl mx-3 xl:mx-auto bg-[color:var(--bg-primary)] text-[color:var(--text-prmary)] text-xs md:text-sm lg:text-base">
           {children}
         </main>
         <Footer />
