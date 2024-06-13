@@ -15,6 +15,7 @@ const Navbar = () => {
 
     const handleSeachText = e => {
         const searchText = e.target.value;
+        console.log(searchText);
 
         if (searchText.length > 0) {
             setIsTypeAnimationVisible(false)
@@ -23,6 +24,14 @@ const Navbar = () => {
             setIsTypeAnimationVisible(true)
         }
 
+
+    };
+
+    const handleSearch = e => {
+        e.preventDefault();
+
+        const searchText = e.target.text.value;
+        console.log(searchText);
 
     }
 
@@ -75,8 +84,8 @@ const Navbar = () => {
                                 searchBtnClicked ? <HiOutlineXMark /> : <CiSearch />
                             }
                         </button>
-                        <form className={`search-form w-60 flex absolute right-1/4 duration-200 ${searchBtnClicked ? '-bottom-[90%] opacity-100' : '-bottom-[130%] opacity-0 pointer-events-none'}`}>
-                            <input onChange={(e) => handleSeachText(e)} type="text" className="w-[80%] bg-[color:var(--bg-primary)] shadow-md border border-slate-100 px-3 py-1 rounded-l-sm outline-none" />
+                        <form onSubmit={handleSearch} className={`search-form w-60 flex absolute right-1/4 duration-200 ${searchBtnClicked ? '-bottom-[90%] opacity-100' : '-bottom-[130%] opacity-0 pointer-events-none'}`}>
+                            <input onChange={(e) => handleSeachText(e)} type="text" name="text" className="w-[80%] bg-[color:var(--bg-primary)] shadow-md border border-slate-100 px-3 py-1 rounded-l-sm outline-none" />
 
                             <div className={`${isTypeAnimationVisible ? '' : 'hidden'} absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none text-base`}>
                                 <TypeAnimation

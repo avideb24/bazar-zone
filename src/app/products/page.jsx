@@ -1,9 +1,9 @@
 import React from 'react';
 import Card from '@/components/shared/Card/Card';
 import getProducts from '@/libs/getProducts';
-import SearchProducts from '@/components/pages/Products/SearchProducts/SearchProducts';
 import Link from 'next/link';
 import { RiArrowRightSLine } from "react-icons/ri";
+import SearchBox from '@/components/shared/SearchBox/SearchBox';
 
 
 const ProductsPage = async () => {
@@ -19,7 +19,7 @@ const ProductsPage = async () => {
             </div>
             {/* search form */}
             <div className='max-w-sm mx-auto'>
-               <SearchProducts />
+               <SearchBox />
             </div>
             {/* products */}
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-8 pb-14'>
