@@ -6,6 +6,8 @@ import ProductRating from '@/components/pages/ProductDetails/ProductRating/Produ
 import CartForm from '@/components/pages/ProductDetails/CartForm/CartForm';
 import getCategoryProducts from '@/libs/getCategoryProducts';
 import { CiFacebook, CiInstagram, CiTwitter } from "react-icons/ci";
+import Card from '@/components/shared/Card/Card';
+import Link from 'next/link';
 
 const ProductPage = async ({ params }) => {
 
@@ -13,19 +15,20 @@ const ProductPage = async ({ params }) => {
 
     const product = await getSingleProduct(id);
 
-    console.log(product);
+    const categoryProducts = await getCategoryProducts(product?.category);
 
-    if (product) {
-        const relatedProducts = await getCategoryProducts(product?.category);
-    }
+    const relatedProducts = await categoryProducts?.filter(product => product?._id !== id)
+
+    // console.log(product);
+
 
     return (
         <section>
 
             <div className='flex items-center gap-2 pt-4 pb-10'>
-                <span className='opacity-75'>All</span>
+                <Link href={'/'} className='opacity-75' >Home</Link>
                 <span><RiArrowRightSLine /></span>
-                <span className='opacity-75'>Products</span>
+               <Link href={'/products'} className='opacity-75'>Products</Link>
                 <span><RiArrowRightSLine /></span>
                 <span>{product?.title}</span>
             </div>
@@ -39,10 +42,10 @@ const ProductPage = async ({ params }) => {
                 <div className='space-y-3'>
                     <div className='flex items-center gap-4 text-xs'>
                         {
-                            product?.stock > 20 ?
+                            product?.stock > 40 ?
                                 <p className='border-2 border-green-600 text-green-600 text-xs px-3 py-1 inline-block'>In Stock</p>
                                 :
-                                <p className='bg-red-600 text-white text-xs px-3 py-1 inline-block'>Low Stock</p>
+                                <p className='border-2 border-red-600 text-red-600 text-xs px-3 py-1 inline-block'>Low Stock</p>
                         }
                         <span>{product?.stock} Items</span>
                     </div>
@@ -53,16 +56,16 @@ const ProductPage = async ({ params }) => {
                         <span>Sizes:</span>
                         {
                             product?.sizes.map(size =>
-                                <p key={size} className={`${size?.length < 1 ? "hidden" : ""} text-secondary border-b-2 border-b-secondary`}>{size}</p>
+                                <p key={size} className={`${size?.length < 1 ? "hidden" : ""} text-secondary border-b-2 border-b-secondary uppercase`}>{size}</p>
                             )
                         }
                     </div>
                     <CartForm product={product} />
 
                     <div className='font-normal py-5 space-y-3'>
-                        <p className='flex gap-8'>Category: <span>{product?.category}</span></p>
+                        <p className='flex gap-8'>Category: <span className='uppercase'>{product?.category}</span></p>
                         <p className='flex gap-4'>Description:
-                            <span>{product.title} is crafted with the highest quality materials to ensure durability and longevity. It is designed with a focus on functionality and style, making it a perfect addition to any home. Ideal for everyday use or special occasions, it combines practical features with an elegant design. Easy to use and maintain, this product is a must-have for anyone looking to enhance their living experience.</span>
+                            <span className='text-justify'>{product.title} is crafted with the highest quality materials to ensure durability and longevity. It is designed with a focus on functionality and style, making it a perfect addition to any home. Ideal for everyday use or special occasions, it combines practical features with an elegant design. Easy to use and maintain, this product is a must-have for anyone looking to enhance their living experience.</span>
                         </p>
                         <div className='flex items-center gap-[60px]'>
                             <p>Share:</p>
@@ -76,6 +79,23 @@ const ProductPage = async ({ params }) => {
 
                 </div>
 
+            </div>
+
+            {/* related products */}
+            <div className='md:pt-8 pb-3 md:pb-16'>
+                <h2 className='text-xl md:text-2xl font-semibold md:pb-4'>Related Products</h2>
+                {
+                    relatedProducts?.length == 0 ?
+                        <div className='text-center text-red-500 py-5'>No Related Products</div>
+                        :
+                        <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+                            {
+                                relatedProducts?.slice(0,4)?.map(product =>
+                                    <Card key={product?._id} product={product} />
+                                )
+                            }
+                        </div>
+                }
             </div>
 
         </section>

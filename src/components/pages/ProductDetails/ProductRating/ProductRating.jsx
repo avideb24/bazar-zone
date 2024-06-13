@@ -10,7 +10,7 @@ const ProductRating = ({rating}) => {
     return (
         <div className='flex items-center gap-2'>
             <Rating initialRating={rating} readonly={true} fullSymbol={<FaStar className='text-2xl' />} emptySymbol={<FaRegStar className='text-2xl' />} />
-            <span className='font-semibold'>1 Review</span>
+            <span>1 Review</span>
         </div>
     );
 };

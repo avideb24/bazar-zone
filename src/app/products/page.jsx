@@ -3,6 +3,7 @@ import Card from '@/components/shared/Card/Card';
 import getProducts from '@/libs/getProducts';
 import SearchProducts from '@/components/pages/Products/SearchProducts/SearchProducts';
 import Link from 'next/link';
+import { RiArrowRightSLine } from "react-icons/ri";
 
 
 const ProductsPage = async () => {
@@ -11,10 +12,10 @@ const ProductsPage = async () => {
 
     return (
         <section>
-            <div className='flex gap-2 mt-5'>
+            <div className='flex items-center gap-2 mt-5'>
                 <Link href={'/'} className='opacity-70'>Home</Link>
-                <span>/</span>
-                <Link href={'/products'}>Products</Link>
+                <span><RiArrowRightSLine /></span>
+                <span>Products</span>
             </div>
             {/* search form */}
             <div className='max-w-sm mx-auto'>

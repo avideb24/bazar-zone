@@ -1,6 +1,8 @@
 import { IoLocationSharp } from "react-icons/io5";
 import { IoMdCall } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
+import { RiArrowRightSLine } from "react-icons/ri";
+import Link from "next/link";
 
 
 const ContactPaage = () => {
@@ -8,7 +10,7 @@ const ContactPaage = () => {
     return (
         <section className="pt-8 pb-32">
             <h1 className="text-3xl font-semibold mb-2">Contact Us</h1>
-            <p><span className="opacity-75">Home</span> / Contact Us</p>
+            <p className="flex items-center gap-3"><Link href={'/'} className="opacity-75">Home</Link> <RiArrowRightSLine /> Contact Us</p>
 
             <div className="flex flex-col md:flex-row md:items-center gap-5 bg-slate-200 py-6 px-20 mt-8">
                 {/* infos */}
