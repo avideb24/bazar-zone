@@ -26,7 +26,7 @@ const images = [
   ];
   
     return (
-        <div className='w-full md:max-w-sm lg:max-w-lg'>
+        <div className='w-full md:max-w-sm lg:max-w-2xl'>
             <ImageGallery items={images} showPlayButton={false} showNav={false} />
         </div>
     );
