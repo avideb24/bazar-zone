@@ -4,7 +4,7 @@ import { FaLinkedin, FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from
 
 const Footer = () => {
     return (
-        <footer className="bg-primary">
+        <footer className="bg-transparent shadow-2xl shadow-gray-400">
             <div className="max-w-7xl mx-auto footer p-10 flex flex-col md:flex-row justify-between items-center md:items-start ">
                 <aside className="flex flex-col items-center md:items-start">
                     <Link href={'/'} className="text-xl font-semibold">Bazar-Zone</Link>

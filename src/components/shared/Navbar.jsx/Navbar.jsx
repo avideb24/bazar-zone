@@ -28,7 +28,7 @@ const Navbar = () => {
 
 
     return (
-        <header className="bg-[color:var(--bg-primary)] pb-3 md:pb-0">
+        <header className="bg-[color:var(--bg-primary)] pb-3 md:pb-0 shadow-md mb-4">
             <nav className="navbar max-w-7xl mx-auto">
                 <div className="navbar-start">
                     <nav className="dropdown">
