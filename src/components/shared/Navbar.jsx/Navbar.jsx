@@ -10,14 +10,15 @@ import useCart from "@/hooks/useCart";
 
 const Navbar = () => {
 
-    const [cart] = useCart();
+    const [cart, setCart] = useCart();
     const [searchBtnClicked, setSearchBtnClicked] = useState(false);
     const [isTypeAnimationVisible, setIsTypeAnimationVisible] = useState(true);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
-    }, []);
+        setCart(cart)
+    }, [cart, setCart]);
 
 
 

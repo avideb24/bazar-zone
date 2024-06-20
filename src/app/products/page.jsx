@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import Card from '@/components/shared/Card/Card';
 import getProducts from '@/libs/getProducts';
 import Link from 'next/link';
@@ -6,9 +8,24 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import SearchBox from '@/components/shared/SearchBox/SearchBox';
 
 
-const ProductsPage = async () => {
+const ProductsPage = () => {
 
-    const products = await getProducts();
+    const [products, setProducts] = useState([]);
+    const [displayProducts, setDisplayProducts] = useState([]);
+
+    
+    useEffect(() => {
+
+        const fetchProducts = async () => {
+            const products = await getProducts();
+            setProducts(products);
+            setDisplayProducts(products);
+        };
+
+        fetchProducts();
+            
+    }, []);
+    
 
     return (
         <section>
@@ -17,14 +34,16 @@ const ProductsPage = async () => {
                 <span><RiArrowRightSLine /></span>
                 <span>Products</span>
             </div>
+
             {/* search form */}
             <div className='max-w-sm mx-auto'>
-               <SearchBox />
+               <SearchBox products={products} setDisplayProducts={setDisplayProducts} />
             </div>
+
             {/* products */}
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-8 pb-14'>
                 {
-                    products.map(product =>
+                    displayProducts.map(product =>
                         <Card key={product?._id} product={product} />
                     )
                 }

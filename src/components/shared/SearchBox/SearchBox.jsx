@@ -4,9 +4,7 @@ import React, { useState } from 'react';
 import { CiSearch } from "react-icons/ci";
 
 
-const SearchBox = () => {
-
-    const [searchProducts, setSearchProducts] = useState(null)
+const SearchBox = ({products , setDisplayProducts}) => {
 
 
     // onChange to search
@@ -17,7 +15,10 @@ const SearchBox = () => {
         if (searchText.length > 0) {
             fetch(`http://localhost:4000/products/search/${searchText}`)
                 .then(res => res.json())
-                .then(data => setSearchProducts(data))
+                .then(data => setDisplayProducts(data))
+        }
+        else{
+            setDisplayProducts(products)
         }
     };
 
@@ -28,7 +29,7 @@ const SearchBox = () => {
 
         fetch(`http://localhost:4000/products/search/${searchText}`)
             .then(res => res.json())
-            .then(data => setSearchProducts(data))
+            .then(data => setDisplayProducts(data))
     }
 
 

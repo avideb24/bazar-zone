@@ -17,7 +17,17 @@ body{
   font-family: "Lora", serif;
 }
 
+/* input - number arrow remove */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
+/* Hide default number input arrows in Firefox */
+input[type='number'] {
+    -moz-appearance: textfield;
+}
 
 /* navbar */
 .nav-items li a{
