@@ -10,7 +10,6 @@ const SearchBox = ({products , setDisplayProducts}) => {
     // onChange to search
     const handleOnChangeSearch = e => {
         const searchText = e.target.value;
-        console.log(searchText);
 
         if (searchText.length > 0) {
             fetch(`http://localhost:4000/products/search/${searchText}`)
@@ -27,7 +26,9 @@ const SearchBox = ({products , setDisplayProducts}) => {
     const handleSearchProducts = e => {
         e.preventDefault();
 
-        fetch(`http://localhost:4000/products/search/${searchText}`)
+        const text = e.target.text.value;
+
+        fetch(`http://localhost:4000/products/search/${text}`)
             .then(res => res.json())
             .then(data => setDisplayProducts(data))
     }
