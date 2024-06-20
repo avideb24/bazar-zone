@@ -7,6 +7,7 @@ import { HiOutlineXMark } from "react-icons/hi2";
 import { TypeAnimation } from "react-type-animation";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import useCart from "@/hooks/useCart";
+import Image from "next/image";
 
 const Navbar = () => {
 
@@ -14,6 +15,7 @@ const Navbar = () => {
     const [searchBtnClicked, setSearchBtnClicked] = useState(false);
     const [isTypeAnimationVisible, setIsTypeAnimationVisible] = useState(true);
     const [mounted, setMounted] = useState(false);
+    const [searchedProducts, setSearchedProducts] = useState([]);
 
     useEffect(() => {
         setMounted(true);
@@ -24,7 +26,16 @@ const Navbar = () => {
 
     const handleSeachText = e => {
         const searchText = e.target.value;
-        console.log(searchText);
+
+        if (searchText.length > 0) {
+            fetch(`http://localhost:4000/products/search/${searchText}`)
+                .then(res => res.json())
+                .then(data => setSearchedProducts(data))
+        }
+        else{
+            setSearchedProducts([])
+        }
+
 
         if (searchText.length > 0) {
             setIsTypeAnimationVisible(false)
@@ -32,18 +43,20 @@ const Navbar = () => {
         else {
             setIsTypeAnimationVisible(true)
         }
-
-
     };
 
+    // submit search
     const handleSearch = e => {
         e.preventDefault();
 
         const searchText = e.target.text.value;
-        console.log(searchText);
 
+    };
+
+    const handleSearchResultClicked = () => {
+        setSearchBtnClicked(false);
+        setSearchedProducts([]);
     }
-
 
     return (
         <header className="bg-[color:var(--bg-primary)] pb-3 md:pb-0 shadow-md mb-4">
@@ -93,7 +106,7 @@ const Navbar = () => {
                                 searchBtnClicked ? <HiOutlineXMark /> : <CiSearch />
                             }
                         </button>
-                        <form onSubmit={handleSearch} className={`search-form w-60 flex absolute right-1/4 duration-200 ${searchBtnClicked ? '-bottom-[90%] opacity-100' : '-bottom-[130%] opacity-0 pointer-events-none'}`}>
+                        <form onSubmit={handleSearch} className={`search-form w-60 z-50 flex absolute right-1/4 duration-200 ${searchBtnClicked ? '-bottom-[90%] opacity-100' : '-bottom-[130%] opacity-0 pointer-events-none'}`}>
                             <input onChange={(e) => handleSeachText(e)} type="text" name="text" className="w-[80%] bg-[color:var(--bg-primary)] shadow-md border border-slate-100 px-3 py-1 rounded-l-sm outline-none" />
 
                             <div className={`${isTypeAnimationVisible ? '' : 'hidden'} absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none text-base`}>
@@ -115,6 +128,16 @@ const Navbar = () => {
                                 <CiSearch className="text-xl p-2 w-full bg-secondary hover:bg-primary text-white h-10 duration-150  rounded-r-sm" />
                             </button>
                         </form>
+                        <div className={`bg-white w-60 absolute -left-56 top-24 z-50 shadow-md p-3 ${searchedProducts.length == 0 ? 'hidden' : ''}`}>
+                            {
+                                searchedProducts?.map(product =>
+                                    <Link href={`/products/${product?._id}`} key={product?._id} onClick={handleSearchResultClicked} className="flex items-center gap-2 pb-3">
+                                        <Image src={product?.img1} width={30} height={30} className="object-cover" alt={product?.title} />
+                                        <p>{product?.title}</p>
+                                    </Link>
+                                )
+                            }
+                        </div>
                     </div>
 
                     {/* cart */}
