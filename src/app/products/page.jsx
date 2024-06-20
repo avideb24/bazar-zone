@@ -13,7 +13,7 @@ const ProductsPage = () => {
     const [products, setProducts] = useState([]);
     const [displayProducts, setDisplayProducts] = useState([]);
 
-    
+
     useEffect(() => {
 
         const fetchProducts = async () => {
@@ -23,9 +23,9 @@ const ProductsPage = () => {
         };
 
         fetchProducts();
-            
+
     }, []);
-    
+
 
     return (
         <section>
@@ -37,17 +37,22 @@ const ProductsPage = () => {
 
             {/* search form */}
             <div className='max-w-sm mx-auto'>
-               <SearchBox products={products} setDisplayProducts={setDisplayProducts} />
+                <SearchBox products={products} setDisplayProducts={setDisplayProducts} />
             </div>
 
             {/* products */}
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-8 pb-14'>
-                {
-                    displayProducts.map(product =>
-                        <Card key={product?._id} product={product} />
-                    )
-                }
-            </div>
+            {
+                displayProducts?.length == 0 ?
+                    <div className='text-center font-bold py-6'>No Product Found!</div>
+                    :
+                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-8 pb-14'>
+                        {
+                            displayProducts.map(product =>
+                                <Card key={product?._id} product={product} />
+                            )
+                        }
+                    </div>
+            }
         </section>
     );
 };

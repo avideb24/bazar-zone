@@ -125,7 +125,7 @@ const Navbar = () => {
 
                     {/* user */}
                     <button>
-                        <CiUser className="text-2xl" />
+                        <CiUser className="text-2xl hidden" />
                     </button>
 
                     {/* add product btn */}

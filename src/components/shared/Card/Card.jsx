@@ -27,7 +27,7 @@ const Card = ({ product }) => {
             Swal.fire({
                 position: "top-end",
                 icon: "error",
-                title: "Already Added!",
+                text: "Already Added!",
                 showConfirmButton: false,
                 timer: 1500
               });
@@ -37,13 +37,26 @@ const Card = ({ product }) => {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "Added Successfully!",
+                text: "Added Successfully!",
                 showConfirmButton: false,
                 timer: 1500
               });
         }
 
     };
+
+
+    const handleAddToWishlist = () => {
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            text: "Added to Wishlist!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+    }
+
+
 
     return (
         <div className='max-w-72 group'>
@@ -53,7 +66,7 @@ const Card = ({ product }) => {
                 </Link>
                 {/* <img src={product?.img1} className='w-full h-full object-cover ' alt="" /> */}
                 {/* favourite btn */}
-                <button className='absolute right-3 top-3 text-xl bg-white px-2 py-2 rounded-full hover:bg-secondary hover:text-white duration-200'>
+                <button onClick={handleAddToWishlist} className='absolute right-3 top-3 text-xl bg-white px-2 py-2 rounded-full hover:bg-secondary hover:text-white duration-200'>
                     <CiHeart />
                 </button>
                 {/* add to cart btn */}
