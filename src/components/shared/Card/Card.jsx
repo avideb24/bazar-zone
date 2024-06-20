@@ -4,8 +4,24 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CiHeart } from "react-icons/ci";
+import useCart from '@/hooks/useCart';
 
 const Card = ({ product }) => {
+
+    const [cart, setCart] = useCart();
+
+
+    const handleAddToCart = (cartProduct) => {
+        const isAlreadyAdded = cart?.find(product => product._id == cartProduct._id);
+
+        if(isAlreadyAdded){
+            console.log('already added');
+        }
+        else{
+            setCart((prev) => [...prev, cartProduct])
+        }
+
+    };
 
     return (
         <div className='max-w-72 group'>
@@ -18,7 +34,7 @@ const Card = ({ product }) => {
                         <CiHeart />
                     </button>
                     {/* add to cart btn */}
-                    <button className='absolute left-0 -bottom-5 bg-secondary text-white text-center font-semibold py-3 w-full uppercase opacity-0 group-hover:opacity-100 group-hover:bottom-0 hover:bg-primary duration-200'>+ add to cart</button>
+                    <button onClick={() => handleAddToCart(product)} className='absolute left-0 -bottom-5 bg-secondary text-white text-center font-semibold py-3 w-full uppercase opacity-0 group-hover:opacity-100 group-hover:bottom-0 hover:bg-primary duration-200'>+ add to cart</button>
                 </div>
             </Link>
             {/* title & price */}

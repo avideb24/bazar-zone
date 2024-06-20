@@ -1,16 +1,24 @@
 'use client';
 
 import Link from "next/link";
-import { useState } from "react";
-import { CiSearch, CiUser, CiShoppingCart, CiLogin } from "react-icons/ci";
+import { useEffect, useState } from "react";
+import { CiSearch, CiUser, CiShoppingCart } from "react-icons/ci";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { TypeAnimation } from "react-type-animation";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import useCart from "@/hooks/useCart";
 
 const Navbar = () => {
 
+    const [cart] = useCart();
     const [searchBtnClicked, setSearchBtnClicked] = useState(false);
     const [isTypeAnimationVisible, setIsTypeAnimationVisible] = useState(true);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
 
 
     const handleSeachText = e => {
@@ -109,19 +117,14 @@ const Navbar = () => {
                     </div>
 
                     {/* cart */}
-                    <button className="inline-block relative">
+                    <Link href={'/cart'} className="inline-block relative">
                         <CiShoppingCart className="text-2xl" />
-                        <span className="w-4 h-4 bg-primary text-white absolute -top-2 -right-2 text-[10px] text-center rounded-full">8</span>
-                    </button>
+                        <span className="w-4 h-4 bg-primary text-white absolute -top-2 -right-2 text-[10px] text-center rounded-full">{mounted ? cart?.length : 0}</span>
+                    </Link>
 
                     {/* user */}
                     <button>
                         <CiUser className="text-2xl" />
-                    </button>
-
-                    {/* login / logout */}
-                    <button className="text-2xl">
-                        <CiLogin />
                     </button>
 
                     {/* add product btn */}

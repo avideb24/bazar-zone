@@ -9,9 +9,15 @@ import 'aos/dist/aos.css';
 
 const Banner = () => {
 
+
+    const handleShop = () => {
+        console.log('hitted');
+    }
+
+
     useEffect(() => {
         AOS.init();
-    },[])
+    }, [])
 
     return (
         <section className='flex flex-col items-center gap-3 py-10'>
@@ -20,7 +26,9 @@ const Banner = () => {
                 <span className='opacity-80'>From:</span>
                 <span className='text-lg md:text-xl font-semibold'>$650.00</span>
             </p>
-            <Button2 btnText={'Shop Now'} />
+            <p onClick={handleShop}>
+                <Button2 btnText={'Shop Now'} />
+            </p>
             <Image src={bannerImg} className='mr-4' placeholder='blur' alt='Ritas - Banner Image' />
         </section>
     );
