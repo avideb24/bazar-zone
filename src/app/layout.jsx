@@ -1,9 +1,9 @@
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar.jsx/Navbar";
 import Footer from "@/components/shared/Footer/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Bazar Zone",

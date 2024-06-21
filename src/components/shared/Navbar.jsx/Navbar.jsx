@@ -28,7 +28,7 @@ const Navbar = () => {
         const searchText = e.target.value;
 
         if (searchText.length > 0) {
-            fetch(`http://localhost:4000/products/search/${searchText}`)
+            fetch(`https://bazar-zone-server.vercel.app/products/search/${searchText}`)
                 .then(res => res.json())
                 .then(data => setSearchedProducts(data))
         }

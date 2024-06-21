@@ -1,5 +1,6 @@
 'use client';
 
+import PageTitle from '@/components/shared/PageTitle/PageTitle';
 import useAxiosPublic from '@/hooks/useAxiosPublic';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -84,6 +85,7 @@ const AddProductPage = () => {
 
     return (
         <form onSubmit={handleAddProduct} className='max-w-xl mx-auto text-[color:var(--text-primary)] bg-slate-300 p-5 space-y-2'>
+            <PageTitle title={'Add Product'} />
             {/* title */}
             <input type="text" name='title' className='bg-[color:var(--bg-primary)] border w-full outline-none px-4 py-1' placeholder='Product Name' required />
             {/* stock */}

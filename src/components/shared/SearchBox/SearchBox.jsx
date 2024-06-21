@@ -12,7 +12,7 @@ const SearchBox = ({products , setDisplayProducts}) => {
         const searchText = e.target.value;
 
         if (searchText.length > 0) {
-            fetch(`http://localhost:4000/products/search/${searchText}`)
+            fetch(`https://bazar-zone-server.vercel.app/products/search/${searchText}`)
                 .then(res => res.json())
                 .then(data => setDisplayProducts(data))
         }
@@ -28,7 +28,7 @@ const SearchBox = ({products , setDisplayProducts}) => {
 
         const text = e.target.text.value;
 
-        fetch(`http://localhost:4000/products/search/${text}`)
+        fetch(`https://bazar-zone-server.vercel.app/products/search/${text}`)
             .then(res => res.json())
             .then(data => setDisplayProducts(data))
     }

@@ -8,6 +8,7 @@ import getCategoryProducts from '@/libs/getCategoryProducts';
 import { CiFacebook, CiInstagram, CiTwitter } from "react-icons/ci";
 import Card from '@/components/shared/Card/Card';
 import Link from 'next/link';
+import PageTitle from '@/components/shared/PageTitle/PageTitle';
 
 const ProductPage = async ({ params }) => {
 
@@ -24,7 +25,7 @@ const ProductPage = async ({ params }) => {
 
     return (
         <section>
-
+            <PageTitle title={product?.title} />
             <div className='flex items-center gap-2 pt-4 pb-10'>
                 <Link href={'/'} className='opacity-75' >Home</Link>
                 <span><RiArrowRightSLine /></span>

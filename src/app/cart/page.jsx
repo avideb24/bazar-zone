@@ -10,6 +10,7 @@ import { AiFillDelete } from "react-icons/ai";
 import Swal from 'sweetalert2';
 import { MdEditDocument } from "react-icons/md";
 import { useRouter } from 'next/navigation';
+import PageTitle from '@/components/shared/PageTitle/PageTitle';
 
 
 const CartPage = () => {
@@ -72,7 +73,7 @@ const CartPage = () => {
 
     return (
         <div className='py-5'>
-
+            <PageTitle title={'Cart'} />
             <p className="flex items-center gap-3"><Link href={'/'} className="opacity-75">Home</Link> <RiArrowRightSLine />Cart</p>
 
             <h1 className='text-xl md:text-2xl font-semibold border-b-2 border-b-slate-200 pt-6 pb-4'>Shopping Cart</h1>

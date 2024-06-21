@@ -6,6 +6,7 @@ import getProducts from '@/libs/getProducts';
 import Link from 'next/link';
 import { RiArrowRightSLine } from "react-icons/ri";
 import SearchBox from '@/components/shared/SearchBox/SearchBox';
+import PageTitle from '@/components/shared/PageTitle/PageTitle';
 
 
 const ProductsPage = () => {
@@ -29,6 +30,7 @@ const ProductsPage = () => {
 
     return (
         <section>
+            <PageTitle title={'Products'} />
             <div className='flex items-center gap-2 mt-5'>
                 <Link href={'/'} className='opacity-70'>Home</Link>
                 <span><RiArrowRightSLine /></span>

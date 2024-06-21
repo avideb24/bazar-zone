@@ -1,6 +1,6 @@
 export default async function getProducts () {
 
-    const response = await fetch('http://localhost:4000/products');
+    const response = await fetch('https://bazar-zone-server.vercel.app/products');
 
     return response.json();
 

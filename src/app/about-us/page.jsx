@@ -9,11 +9,13 @@ import brandImg4 from '../../../public/images/about/4-brand_default.png';
 import brandImg5 from '../../../public/images/about/5-brand_default.png';
 import Link from 'next/link';
 import Image from 'next/image';
+import PageTitle from '@/components/shared/PageTitle/PageTitle';
 
 
 const AboutPage = () => {
     return (
         <section className="pt-8 pb-8 md:pb-20">
+            <PageTitle title={'About Us'} />
             <h1 className="text-3xl font-semibold mb-2">About Us</h1>
             <p className="flex items-center gap-3"><Link href={'/'} className="opacity-75">Home</Link> <RiArrowRightSLine />About Us</p>
 

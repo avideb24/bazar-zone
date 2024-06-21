@@ -22,14 +22,16 @@ const Banner = () => {
     return (
         <section className='flex flex-col items-center gap-3 py-10'>
             <h2 className='text-2xl md:text-6xl font-bold' data-aos="fade-right">RITAS</h2>
-            <p className='flex items-center gap-2'>
+            <p className='flex items-center gap-2' data-aos="fade-left" data-aos-delay="400">
                 <span className='opacity-80'>From:</span>
                 <span className='text-lg md:text-xl font-semibold'>$650.00</span>
             </p>
-            <p onClick={handleShop}>
-                <Button2 btnText={'Shop Now'} />
-            </p>
-            <Image src={bannerImg} className='mr-4' placeholder='blur' alt='Ritas - Banner Image' />
+            <div className='flex flex-col items-center' data-aos="fade-up" data-aos-delay="600">
+                <p onClick={handleShop}>
+                    <Button2 btnText={'Shop Now'} />
+                </p>
+                <Image src={bannerImg} className='mr-4 mt-5' placeholder='blur' alt='Ritas - Banner Image' />
+            </div>
         </section>
     );
 };

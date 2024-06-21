@@ -3,12 +3,14 @@ import { IoMdCall } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { RiArrowRightSLine } from "react-icons/ri";
 import Link from "next/link";
+import PageTitle from "@/components/shared/PageTitle/PageTitle";
 
 
 const ContactPaage = () => {
 
     return (
         <section className="pt-8 pb-32">
+            <PageTitle title={'Conact Us'} />
             <h1 className="text-3xl font-semibold mb-2">Contact Us</h1>
             <p className="flex items-center gap-3"><Link href={'/'} className="opacity-75">Home</Link> <RiArrowRightSLine /> Contact Us</p>
 
