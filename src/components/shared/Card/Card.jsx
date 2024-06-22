@@ -54,7 +54,14 @@ const Card = ({ product }) => {
             showConfirmButton: false,
             timer: 1500
           });
-    }
+    };
+
+    
+    const hiddenProductsId = ['6676987823b31b40f9030d94','66769a8123b31b40f9030d95','66769aaf23b31b40f9030d96'];
+
+    if(hiddenProductsId.includes(product?._id)){
+        return null
+    };
 
 
 
