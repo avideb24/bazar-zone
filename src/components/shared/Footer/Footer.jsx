@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { FaLinkedin, FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from "react-icons/fa";
+import logo from '../../../../public/images/logo.png';
+import Image from "next/image";
 
 
 const Footer = () => {
@@ -7,7 +9,9 @@ const Footer = () => {
         <footer className="bg-transparent shadow-2xl shadow-gray-400">
             <div className="max-w-7xl mx-auto footer p-10 flex flex-col md:flex-row justify-between items-center md:items-start ">
                 <aside className="flex flex-col items-center md:items-start">
-                    <Link href={'/'} className="text-xl font-semibold">Bazar-Zone</Link>
+                    <Link href={'/'} className="text-xl font-semibold">
+                        <Image src={logo} className="max-w-32" alt="Bazar-Zone Logo" />
+                    </Link>
                     <address className="not-italic">Bus Stand Mor, Dinajpur, Bangladesh</address>
                     <a href="tel:+8801723622125" className="hover:underline">+8801723622125</a>
                     <p>bazar-zone@info.com</p>

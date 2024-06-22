@@ -8,6 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import useCart from "@/hooks/useCart";
 import Image from "next/image";
+import logo from '../../../../public/images/logo.png';
 
 const Navbar = () => {
 
@@ -81,7 +82,9 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </nav>
-                    <Link href={'/'}>Bazar-Zone</Link>
+                    <Link href={'/'}>
+                        <Image src={logo} className="max-w-32" alt="Bazar-Zone Logo"></Image>
+                    </Link>
                 </div>
                 <nav className="navbar-center hidden lg:flex">
                     <ul className="nav-items menu menu-horizontal px-1">
