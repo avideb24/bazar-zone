@@ -28,7 +28,7 @@ const NewsLetter = () => {
                 <h2 className='text-xl md:text-2xl font-semibold text-center  capitalize'>subscribe to our newsletter</h2>
                 <p className='mb-8 mt-3 text-center opacity-80'>Stay Updated on all that&apos;s new add noteworthy</p>
                 <form className='flex items-center gap-3' onSubmit={handleSubscribe}>
-                    <input type="email" name='email' className='w-9/12 py-1 border-b-2 bg-transparent border-b-slate-400 outline-none' placeholder='Your E-mail...' />
+                    <input type="email" name='email' className='w-9/12 py-1 border-b-2 bg-transparent border-b-slate-400 outline-none' placeholder='Your E-mail...' required />
                     <input type="submit" value="Subscribe" className='w-3/12 py-1 border-b-2 border-b-slate-400 uppercase font-semibold outline-none cursor-pointer' />
                 </form>
             </div>
