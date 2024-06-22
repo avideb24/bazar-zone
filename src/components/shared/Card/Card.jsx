@@ -77,7 +77,7 @@ const Card = ({ product }) => {
                 <Link href={`/products/${product?._id}`}>
                     <h2 className='text-base font-semibold mb-1 hover:text-primary duration-150'>{product?.title}</h2>
                 </Link>
-                <p>$26.65</p>
+                <p>${product?.price}</p>
             </div>
         </div>
     );

@@ -152,7 +152,7 @@ const Navbar = () => {
                     </button>
 
                     {/* add product btn */}
-                    <Link href={'/add-product'} className="hidden"><IoMdAddCircleOutline /></Link>
+                    <Link href={'/add-product'} className="text-2xl hidden"><IoMdAddCircleOutline /></Link>
                 </div>
 
             </nav>

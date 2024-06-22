@@ -6,14 +6,11 @@ import Image from 'next/image';
 import Button2 from '@/components/shared/Button2/Button2';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Link from 'next/link';
 
 const Banner = () => {
 
-
-    const handleShop = () => {
-        console.log('hitted');
-    }
-
+    const id = '6676987823b31b40f9030d94';
 
     useEffect(() => {
         AOS.init();
@@ -27,9 +24,9 @@ const Banner = () => {
                 <span className='text-lg md:text-xl font-semibold'>$650.00</span>
             </p>
             <div className='flex flex-col items-center' data-aos="fade-up" data-aos-delay="600">
-                <p onClick={handleShop}>
+                <Link href={`/products/${id}`}>
                     <Button2 btnText={'Shop Now'} />
-                </p>
+                </Link>
                 <Image src={bannerImg} className='mr-4 mt-5' placeholder='blur' alt='Ritas - Banner Image' />
             </div>
         </section>
