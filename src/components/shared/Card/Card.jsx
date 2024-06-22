@@ -62,7 +62,7 @@ const Card = ({ product }) => {
         <div className='max-w-72 group'>
             <div className='max-h-80 relative'>
                 <Link href={`/products/${product?._id}`}>
-                    <Image src={product?.img1} width={500} height={500} className='w-full h-full object-cover ' alt='product image' />
+                    <Image src={product?.img1} width={500} height={500} className='w-full h-max object-contain ' alt='product image' />
                 </Link>
                 {/* <img src={product?.img1} className='w-full h-full object-cover ' alt="" /> */}
                 {/* favourite btn */}
