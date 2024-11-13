@@ -20,7 +20,7 @@ const CartPage = () => {
     const router = useRouter();
 
     console.log(cart);
-    
+
 
     useEffect(() => {
         setMounted(true)
@@ -96,9 +96,13 @@ const CartPage = () => {
                                             {
                                                 cart?.map(product =>
                                                     <div key={product?._id} className='grid grid-cols-4 items-center gap-2 pt-6'>
-                                                        <Image src={product?.img1} width={100} height={100} alt={product?.title} />
+                                                        <Link href={`/products/${product?._id}`}>
+                                                            <Image src={product?.img1} width={100} height={100} alt={product?.title} />
+                                                        </Link>
                                                         <div className='font-semibold'>
-                                                            <h3>{product?.title}</h3>
+                                                            <Link href={`/products/${product?._id}`}>
+                                                                {product?.title}
+                                                            </Link>
                                                             <p>${product?.price} <span className='font-normal text-xs'>x{product?.quantity}</span> </p>
                                                             <p className='text-xs md:text-sm'>Subtotal: ${product?.price * product?.quantity}</p>
                                                         </div>
@@ -157,7 +161,7 @@ const CartPage = () => {
 
                     </div>
                     :
-                    <div></div>
+                    <></>
             }
 
         </div>
