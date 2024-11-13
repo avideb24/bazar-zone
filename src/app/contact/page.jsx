@@ -53,7 +53,7 @@ const ContactPaage = () => {
 
                 {/* contact form **/}
                 <div className="md:w-1/2 space-y-3">
-                    <h2 className="text-lg font-semibold text-center">We&apos;ld like to hear from you</h2>
+                    <h2 className="text-lg font-semibold text-center">We&apos;d like to hear from you</h2>
                     <form ref={formRef} onSubmit={handleSendMessage} className="text-[color:var(--text-primary)] space-y-3">
                         {/* name */}
                         <div className="flex items-center gap-2">

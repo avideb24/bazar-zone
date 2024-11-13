@@ -7,20 +7,28 @@ import Link from 'next/link';
 import { RiArrowRightSLine } from "react-icons/ri";
 import SearchBox from '@/components/shared/SearchBox/SearchBox';
 import PageTitle from '@/components/shared/PageTitle/PageTitle';
+import PageLoading from '@/components/Loading/PageLoading/PageLoading';
 
 
 const ProductsPage = () => {
 
     const [products, setProducts] = useState([]);
     const [displayProducts, setDisplayProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
 
         const fetchProducts = async () => {
-            const products = await getProducts();
-            setProducts(products);
-            setDisplayProducts(products);
+            try {
+                const productsData = await getProducts();
+                setProducts(productsData);
+                setDisplayProducts(productsData);
+            } catch (error) {
+                console.error("Failed to fetch products:", error);
+            } finally {
+                setLoading(false);
+            }
         };
 
         fetchProducts();
@@ -44,16 +52,23 @@ const ProductsPage = () => {
 
             {/* products */}
             {
-                displayProducts?.length == 0 ?
-                    <div className='text-center font-bold py-6'>No Product Found!</div>
+                loading ?
+                    <PageLoading />
                     :
-                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-8 pb-14'>
+                    <>
                         {
-                            displayProducts.map(product =>
-                                <Card key={product?._id} product={product} />
-                            )
+                            displayProducts?.length == 0 ?
+                                <div className='text-center font-bold py-6'>No Product Found!</div>
+                                :
+                                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-8 pb-14'>
+                                    {
+                                        displayProducts.map(product =>
+                                            <Card key={product?._id} product={product} />
+                                        )
+                                    }
+                                </div>
                         }
-                    </div>
+                    </>
             }
         </section>
     );
