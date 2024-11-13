@@ -4,8 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CiHeart } from "react-icons/ci";
-import useCart from '@/hooks/useCart';
 import Swal from 'sweetalert2';
+import { useCart } from '@/Provider/CartProvider/CartProvider';
 
 const Card = ({ product }) => {
 

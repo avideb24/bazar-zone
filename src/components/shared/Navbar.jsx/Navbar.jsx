@@ -6,9 +6,9 @@ import { CiSearch, CiUser, CiShoppingCart } from "react-icons/ci";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { TypeAnimation } from "react-type-animation";
 import { IoMdAddCircleOutline } from "react-icons/io";
-import useCart from "@/hooks/useCart";
 import Image from "next/image";
 import logo from '../../../../public/images/logo.png';
+import { useCart } from "@/Provider/CartProvider/CartProvider";
 
 const Navbar = () => {
 

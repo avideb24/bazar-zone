@@ -1,7 +1,7 @@
 'use client';
 
 import Button2 from '@/components/shared/Button2/Button2';
-import useCart from '@/hooks/useCart';
+import { useCart } from '@/Provider/CartProvider/CartProvider';
 import React, { useState } from 'react';
 import { FiPlus, FiMinus } from "react-icons/fi";
 import Swal from 'sweetalert2';

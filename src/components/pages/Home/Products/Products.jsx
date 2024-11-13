@@ -23,7 +23,7 @@ const Products = async () => {
                             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center gap-4'>
                                 {
                                     products?.slice(0,12)?.map(product =>
-                                        <Card key={product._id} product={product} />
+                                        <Card key={product?._id} product={product} />
                                     )
                                 }
                             </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import useCart from '@/hooks/useCart';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -11,6 +10,7 @@ import Swal from 'sweetalert2';
 import { MdEditDocument } from "react-icons/md";
 import { useRouter } from 'next/navigation';
 import PageTitle from '@/components/shared/PageTitle/PageTitle';
+import { useCart } from '@/Provider/CartProvider/CartProvider';
 
 
 const CartPage = () => {
@@ -18,6 +18,9 @@ const CartPage = () => {
     const [cart, setCart] = useCart();
     const [mounted, setMounted] = useState(false);
     const router = useRouter();
+
+    console.log(cart);
+    
 
     useEffect(() => {
         setMounted(true)
@@ -116,7 +119,7 @@ const CartPage = () => {
                         {/* checkout */}
                         <div className='w-full md:w-4/12'>
                             <div className='flex justify-between items-center gap-3'>
-                                <p className='opacity-75'>2 Items</p>
+                                <p className='opacity-75'>{cart?.length} Items</p>
                                 <p className='font-semibold'>${itemsTotalPrice}</p>
                             </div>
                             <div className='flex justify-between items-center gap-3'>
@@ -142,7 +145,7 @@ const CartPage = () => {
                                         <input type="email" className='w-full bg-white text-secondary px-3 py-1 outline-none border-2 border-slate-300' placeholder='Your e-mail...' required />
                                         <input type="text" className='w-full bg-white text-secondary px-3 py-1 outline-none border-2 border-slate-300' placeholder='Your address...' required />
                                         <input type="number" className='w-full bg-white text-secondary px-3 py-1 outline-none border-2 border-slate-300' placeholder='Your Phone...' required />
-                                        <input type="submit" className='w-full py-1 bg-secondary hover:bg-primary duration-200 text-white font-semibold cursor-pointer' value="Checkout" />
+                                        <input type="submit" className='w-full py-1 bg-secondary hover:bg-primary duration-200 text-white font-semibold cursor-pointer' value="Checkout" disabled={cart?.length == 0} />
                                     </form>
                                 </div>
                                 <form method="dialog" className="modal-backdrop">
