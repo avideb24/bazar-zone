@@ -11,6 +11,7 @@ import { MdEditDocument } from "react-icons/md";
 import { useRouter } from 'next/navigation';
 import PageTitle from '@/components/shared/PageTitle/PageTitle';
 import { useCart } from '@/Provider/CartProvider/CartProvider';
+import TawkToScript from '@/components/TawkToScript/TawkToScript';
 
 
 const CartPage = () => {
@@ -163,6 +164,8 @@ const CartPage = () => {
                     :
                     <></>
             }
+
+            <TawkToScript />
 
         </div>
     );

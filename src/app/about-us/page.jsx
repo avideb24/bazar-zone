@@ -12,7 +12,7 @@ import brandImg5 from '../../../public/images/about/5-brand_default.png';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageTitle from '@/components/shared/PageTitle/PageTitle';
-import Script from 'next/script';
+import TawkToScript from '@/components/TawkToScript/TawkToScript';
 
 
 const AboutPage = () => {
@@ -48,11 +48,7 @@ const AboutPage = () => {
             </div>
 
 
-            <Script
-                src="https://embed.tawk.to/6756fd5caf5bfec1dbd96f19/1ielsrdbl"
-                strategy="lazyOnload"
-                onLoad={() => console.log('Tawk.to script loaded successfully.')}
-            />
+            <TawkToScript />
 
         </section>
     );
