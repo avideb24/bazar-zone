@@ -8,6 +8,7 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import SearchBox from '@/components/shared/SearchBox/SearchBox';
 import PageTitle from '@/components/shared/PageTitle/PageTitle';
 import PageLoading from '@/components/Loading/PageLoading/PageLoading';
+import Script from 'next/script';
 
 
 const ProductsPage = () => {
@@ -70,6 +71,12 @@ const ProductsPage = () => {
                         }
                     </>
             }
+
+            <Script
+                src="https://embed.tawk.to/6756fd5caf5bfec1dbd96f19/1ielsrdbl"
+                strategy="lazyOnload"
+                onLoad={() => console.log('Tawk.to script loaded successfully.')}
+            />
         </section>
     );
 };

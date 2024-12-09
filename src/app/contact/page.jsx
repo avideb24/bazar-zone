@@ -8,6 +8,7 @@ import Link from "next/link";
 import PageTitle from "@/components/shared/PageTitle/PageTitle";
 import Swal from "sweetalert2";
 import { useRef } from "react";
+import Script from "next/script";
 
 
 const ContactPaage = () => {
@@ -77,6 +78,12 @@ const ContactPaage = () => {
                     </form>
                 </div>
             </div>
+
+            <Script
+                src="https://embed.tawk.to/6756fd5caf5bfec1dbd96f19/1ielsrdbl"
+                strategy="lazyOnload"
+                onLoad={() => console.log('Tawk.to script loaded successfully.')}
+            />
         </section>
     );
 };

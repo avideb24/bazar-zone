@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { RiArrowRightSLine } from "react-icons/ri";
 import aboutImg1 from '../../../public/images/about/about_1.webp';
@@ -10,6 +12,7 @@ import brandImg5 from '../../../public/images/about/5-brand_default.png';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageTitle from '@/components/shared/PageTitle/PageTitle';
+import Script from 'next/script';
 
 
 const AboutPage = () => {
@@ -43,6 +46,13 @@ const AboutPage = () => {
                 <Image src={brandImg4} className='w-full' alt='brand-img' />
                 <Image src={brandImg5} className='w-full' alt='brand-img' />
             </div>
+
+
+            <Script
+                src="https://embed.tawk.to/6756fd5caf5bfec1dbd96f19/1ielsrdbl"
+                strategy="lazyOnload"
+                onLoad={() => console.log('Tawk.to script loaded successfully.')}
+            />
 
         </section>
     );
